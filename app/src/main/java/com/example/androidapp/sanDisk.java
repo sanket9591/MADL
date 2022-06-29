@@ -3,6 +3,7 @@ package com.example.androidapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class sanDisk extends AppCompatActivity {
             startActivity(i);
         });
 
+
         final TextView textView2 = (TextView) findViewById(R.id.textView4);
         textView2.setOnClickListener(v -> {
             // your handler code here
@@ -33,6 +35,16 @@ public class sanDisk extends AppCompatActivity {
             // your handler code here
             Intent i = new Intent(getApplicationContext(),Media.class);
             startActivity(i);
+        });
+
+        final TextView textView6 = (TextView) findViewById(R.id.textView7);
+        textView6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String url = "https://youtube.com";
+                Intent intent=new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                startActivity(intent);
+            }
         });
 
         TextView textView1 = (TextView) findViewById(R.id.textView6);
@@ -51,5 +63,14 @@ public class sanDisk extends AppCompatActivity {
             }
         });
 
+        TextView textView8 = (TextView) findViewById(R.id.textView8);
+
+        textView8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(sanDisk.this,asynctask.class);
+                startActivity(intent);
+            }
+        });
         }
 }
